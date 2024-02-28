@@ -18,7 +18,13 @@
                     <input type="text" placeholder="Enter your first name"
                         class="form-control py-2 px-3 rounded-0 shadow-none" formControlName="name" name="name"
                         autocomplete="off">
+
+                    <div *ngIf="myform.controls?.['name']?.touched" class="text-danger">
+                        <p *ngIf="myform.controls?.['name']?.errors?.['required']">Name is required</p>
+                    </div>
                 </div>
+
+
 
 
                 <div class="col-md-6 col-11 mb-4">

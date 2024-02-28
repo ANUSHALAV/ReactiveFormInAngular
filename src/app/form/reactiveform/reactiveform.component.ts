@@ -18,19 +18,17 @@ export class ReactiveformComponent implements OnInit {
   }
 
   myform: FormGroup = new FormGroup({
-    name: new FormControl(''),
-    username: new FormControl(''),
-    email: new FormControl(''),
-    phone: new FormControl('')
+    name: new FormControl('', [Validators.required]),
+    username: new FormControl('', [Validators.required]),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    phone: new FormControl('', [Validators.required, Validators.pattern('^[0-9]+$')])
   });
-
-
 
   ngOnInit() {
     this.getData();
   }
 
-  userData: any;
+ 
   savedata() {
     const dataObj = this.myform.value;
     this.httpclient.post('https://jsonplaceholder.typicode.com/users', dataObj).subscribe((res: any) => {
