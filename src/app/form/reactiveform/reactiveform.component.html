@@ -1,0 +1,97 @@
+<section class="header-section">
+    <div class="container">
+        <div class="row mt-4">
+            <div class="col-12 text-center fs-1 fw-bold text-success">
+                <p>Ragistration form!</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="form-section">
+    <div class="container border border-5 border-danger p-4">
+        <form [formGroup]="myform" (ngSubmit)="savedata()">
+            <div class="row justtify-bottom align-items-center mb-4">
+                <div class="col-md-6 col-11 mb-4">
+                    <label for="fname" class="form-label">Name</label>
+                    <input type="text" placeholder="Enter your first name"
+                        class="form-control py-2 px-3 rounded-0 shadow-none" formControlName="name" name="name"
+                        autocomplete="off">
+                </div>
+
+
+                <div class="col-md-6 col-11 mb-4">
+                    <label for="lname" class="form-label">Username</label>
+                    <input type="text" placeholder="Enter your username"
+                        class="form-control py-2 px-3 rounded-0 shadow-none" formControlName="username" name="username"
+                        autocomplete="off">
+                </div>
+            </div>
+
+
+            <div class="row justtify-bottom align-items-center mb-4">
+                <div class="col-md-6 col-11 mb-4">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" placeholder="Enter your email address"
+                        class="form-control py-2 px-3 rounded-0 shadow-none" formControlName="email" name="email"
+                        autocomplete="off">
+                </div>
+                <div class="col-md-6 col-11 mb-4">
+                    <label for="phone" class="form-label">Phone</label>
+                    <input type="tel" placeholder="Enter your phone number"
+                        class="form-control py-2 px-3 rounded-0 shadow-none" formControlName="phone" name="phone"
+                        autocomplete="off">
+                </div>
+            </div>
+
+
+            <div class="col-md-6 col-11 text-center w-100">
+                <input type="submit" value="SAVE USER" class="btn btn-primary w-25 rounded-0">
+            </div>
+
+        </form>
+    </div>
+</section>
+
+
+
+<section class="table-section my-5">
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-12">
+                <p class="text-center text-success fs-2 text-capitalize fw-bold">all users !</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <table class="table table-bordered table-hover text-capitalize">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>name</th>
+                    <th>username</th>
+                    <th>email</th>
+                    <th>phone</th>
+                    <th>action</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let user of userArray">
+                    <td>{{user.id}}</td>
+                    <td>{{user.name}}</td>
+                    <td>{{user.username}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.phone}}</td>
+                    <td>
+                        <button class="btn btn-success rounded-0 me-4" (click)="editData(user.id)">Edit</button>
+
+                        <button class="btn btn-danger rounded-0" (click)="deleteData(user.id)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>

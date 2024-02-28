@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'ReactiveFormPracticeProject';
+  title = 'Reactive Form Practice Project';
 }
